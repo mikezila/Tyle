@@ -29,10 +29,10 @@ There is no HUD at current, so the keys aren't obvious.  Sorry about that.  Ther
 TODO
 ====
 
--Make the zoom suck less
--Split into more than one file, getting messy
--Add a HUD that shows keys
--Add map truncation or let user specify desired map size.
--Let user choose filename, and save/load to files of their choosing.
--Instead of having three files (space,props,tiles) find a way to just have one.
+- Make the zoom suck less
+- Split into more than one file, getting messy
+- Add a HUD that shows keys
+- Add map truncation or let user specify desired map size.
+- Let user choose filename, and save/load to files of their choosing.
+- Instead of having three files (space,props,tiles) find a way to just have one.
 
