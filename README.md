@@ -3,6 +3,16 @@ Tyle
 
 Tile based map editor for gaming use the Tyle format.  The game it goes with isn't ready yet, but the editor stores it's data into three pretty simple arrays, so it could easily be used to make maps for other games that use simple tile based rendering.
 
+Demo here:
+http://www.youtube.com/watch?v=GOkeDAkhCJ8
+
+Requirements
+============
+- **Ruby** v1.8 or v1.9, I recommend v1.9.3
+- The **Gosu** gem
+
+        gem install gosu
+
 Maps
 ====
 
