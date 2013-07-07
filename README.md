@@ -15,15 +15,16 @@ Keys
 
 There is no HUD at current, so the keys aren't obvious.  Sorry about that.  There will be a HUD in the next version I think.
 
-**Arrows** - Move the cursor
-**Q / W** - Cycle through the tiles in the tileset
-**A** - Place the current tile as a world map tile
-**S** - Place the current tile as a prop
-**D** - Clear a tile, removing any world tile, prop, and collsion.
-**Z** - Mark an area for collision
-**X** - Toggle drawing colliders, represented by red circles with crosses
-**IJKL** - Move the camera, moves faster during zoom.
-**M** - Toggle zoom, will zoom into an area with the cursor at top left
+- **Arrows** - Move the cursor.
+- **Q / W** - Cycle through the tiles in the tileset.
+- **A** - Place the current tile as a world map tile.
+- **S** - Place the current tile as a prop.
+- **D** - Clear a tile, removing any world tile, prop, and collsion.
+- **Z** - Mark an area for collision.
+- **X** - Toggle drawing colliders, represented by red circles with crosses.
+- **IJKL** - Move the camera, moves faster during zoom.
+- **M** - Toggle zoom, will zoom into an area with the cursor at top left.
+- **O / P** - Save and load the map, uses the FILENAME constant to do either.
 
 TODO
 ====
@@ -34,4 +35,4 @@ TODO
 -Add map truncation or let user specify desired map size.
 -Let user choose filename, and save/load to files of their choosing.
 -Instead of having three files (space,props,tiles) find a way to just have one.
-**O / P** - Save and load, uses the FILENAME constant when doing either.
+
