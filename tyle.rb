@@ -177,8 +177,8 @@ class Player
 	
 	def initialize(window)
 		@window = window
-		@cursor = Gosu::Image.new(window,'./tex/cursor.bmp', false)
-		@art = Gosu::Image.load_tiles(window,'./tex/tiles.png',16,16,true)
+		@cursor = Gosu::Image.new(window,"./tex/cursor.bmp", false)
+		@art = Gosu::Image.load_tiles(window,"./tex/tiles.png",16,16,true)
 		@selected_sprite = 19 # Start the cursor off at a street sign, because why not.
 		@sprite = @art[@selected_sprite]
 		@x = @y = 0
@@ -262,8 +262,8 @@ end
 
 class Map
 	def initialize(window)
-		@tiles = Gosu::Image.load_tiles(window,'./tex/tiles.png',16,16,true)
-		@collider = Gosu::Image.new(window,'./tex/col.png',false)
+		@tiles = Gosu::Image.load_tiles(window,"./tex/tiles.png",16,16,true)
+		@collider = Gosu::Image.new(window,"./tex/col.png",false)
 		# Start off showing colliders, since the maps starts with none
 		# starting with them hidden would be confusing when you placed one
 		# and nothing showed up on the screen.  Can be toggled with X.
@@ -370,5 +370,5 @@ $test_props = Array.new(48) {Array.new(64) {nil}}
 $test_world = Array.new(48) {Array.new(64) {nil}}
 
 # Lets start this bad Jackson.
-game = Gamewindow.new
-game.show
+Gamewindow.new.show
+
