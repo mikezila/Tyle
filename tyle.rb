@@ -18,6 +18,14 @@ def debug(message)
   puts "#{Time.now.strftime("%H:%M:%S.%L")} - \t#{message}" if DEBUG
 end
 
+def image(name)
+  File.expand_path("tex/#{name}", File.dirname(__FILE__))
+end
+
+def data(name)
+  File.expand_path("#{name}", File.dirname(__FILE__))
+end
+
 debug("Tyle v" + VERSION + "\n\t\tby Allcaps")
 
 class Gamewindow < Gosu::Window
@@ -177,8 +185,8 @@ class Player
 	
 	def initialize(window)
 		@window = window
-		@cursor = Gosu::Image.new(window,"./tex/cursor.bmp", false)
-		@art = Gosu::Image.load_tiles(window,"./tex/tiles.png",16,16,true)
+		@cursor = Gosu::Image.new(window, image("cursor.png"), false)
+		@art = Gosu::Image.load_tiles(window, image("tiles.png"),16,16,true)
 		@selected_sprite = 19 # Start the cursor off at a street sign, because why not.
 		@sprite = @art[@selected_sprite]
 		@x = @y = 0
@@ -262,8 +270,8 @@ end
 
 class Map
 	def initialize(window)
-		@tiles = Gosu::Image.load_tiles(window,"./tex/tiles.png",16,16,true)
-		@collider = Gosu::Image.new(window,"./tex/col.png",false)
+		@tiles = Gosu::Image.load_tiles(window,image("tiles.png"),16,16,true)
+		@collider = Gosu::Image.new(window,image("col.png"),false)
 		# Start off showing colliders, since the maps starts with none
 		# starting with them hidden would be confusing when you placed one
 		# and nothing showed up on the screen.  Can be toggled with X.
@@ -272,13 +280,13 @@ class Map
 	
 	def save(filename)
 		debug("Saving #{FILENAME}.tyle...")
-		File.open("#{FILENAME}_world.tyle","wb") do |file|
+		File.open(data("#{FILENAME}_world.tyle","wb")) do |file|
 			Marshal.dump($test_world,file)
 		end
-		File.open("#{FILENAME}_props.tyle","wb") do |file|
+		File.open(data("#{FILENAME}_props.tyle","wb")) do |file|
 			Marshal.dump($test_props,file)
 		end
-		File.open("#{FILENAME}_space.tyle","wb") do |file|
+		File.open(data("#{FILENAME}_space.tyle","wb")) do |file|
 			Marshal.dump($test_space,file)
 		end
 		debug("Done.")
@@ -286,13 +294,14 @@ class Map
 	
 	def load(filename)
 		debug("Loading #{FILENAME}.tyle...")
-		File.open("#{FILENAME}_world.tyle","rb") do |file|
+		File.open(data("#{FILENAME}_world.tyle","rb")) do |file|
 			$test_world = Marshal.load(file)
 		end
-		File.open("#{FILENAME}_props.tyle","rb") do |file|
+		File.open(data("#{FILENAME}_props.tyle","rb")) do |file|
+
 			$test_props = Marshal.load(file)
 		end
-		File.open("#{FILENAME}_space.tyle","rb") do |file|
+		File.open(data("#{FILENAME}_space.tyle","rb") )do |file|
 			$test_space = Marshal.load(file)
 		end
 		debug("Done.")
