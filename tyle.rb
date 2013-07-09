@@ -12,12 +12,14 @@ require 'rubygems' # This is only needed on older Rubies, I think, but it does n
 require 'gosu'
 
 # This makes it easier to spit debugging output to the console.
-# I know I should probably raise exceptions and rescute them, but
+# I know I should probably raise exceptions and rescue them, but
 # this is easier.  Sue me.  Lifted it from jCaster by Jahmaican.
 def debug(message)
   puts "#{Time.now.strftime("%H:%M:%S.%L")} - \t#{message}" if DEBUG
 end
 
+# Theese are clever and Spooner is a clever man.
+# Also handsome I presume.
 def image(name)
   File.expand_path("tex/#{name}", File.dirname(__FILE__))
 end
@@ -280,13 +282,13 @@ class Map
 	
 	def save(filename)
 		debug("Saving #{FILENAME}.tyle...")
-		File.open(data("#{FILENAME}_world.tyle","wb")) do |file|
+		File.open(data("#{FILENAME}_world.tyle"),"wb") do |file|
 			Marshal.dump($test_world,file)
 		end
-		File.open(data("#{FILENAME}_props.tyle","wb")) do |file|
+		File.open(data("#{FILENAME}_props.tyle"),"wb") do |file|
 			Marshal.dump($test_props,file)
 		end
-		File.open(data("#{FILENAME}_space.tyle","wb")) do |file|
+		File.open(data("#{FILENAME}_space.tyle"),"wb") do |file|
 			Marshal.dump($test_space,file)
 		end
 		debug("Done.")
@@ -294,14 +296,14 @@ class Map
 	
 	def load(filename)
 		debug("Loading #{FILENAME}.tyle...")
-		File.open(data("#{FILENAME}_world.tyle","rb")) do |file|
+		File.open(data("#{FILENAME}_world.tyle"),"rb") do |file|
 			$test_world = Marshal.load(file)
 		end
-		File.open(data("#{FILENAME}_props.tyle","rb")) do |file|
+		File.open(data("#{FILENAME}_props.tyle"),"rb") do |file|
 
 			$test_props = Marshal.load(file)
 		end
-		File.open(data("#{FILENAME}_space.tyle","rb") )do |file|
+		File.open(data("#{FILENAME}_space.tyle"),"rb")do |file|
 			$test_space = Marshal.load(file)
 		end
 		debug("Done.")
@@ -380,4 +382,3 @@ $test_world = Array.new(48) {Array.new(64) {nil}}
 
 # Lets start this bad Jackson.
 Gamewindow.new.show
-
